@@ -9,14 +9,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var version = "0.0.1"
-
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:     "calculator",
-	Version: version,
-	Short:   "Simple cli calculator",
-	Long:    `A simple cli calculator built with spf13 and Go`,
+	Use:   "calculator",
+	Short: "Simple cli calculator",
+	Long:  `A simple cli calculator built with spf13 and Go`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//Run: func(cmd *cobra.Command, args []string) {},
