@@ -8,7 +8,7 @@ SRC        := $(shell git ls-files "*.go")
 OUTPUT_BIN ?= $(BIN)/$(NAME)
 
 PACKAGE    := github.com/atrakic/$(NAME)
-VERSION    := v0.1.0
+VERSION    := 0.0.1
 GIT_REV    ?= $(shell git rev-parse --short HEAD)
 SOURCE_DATE_EPOCH ?= $(shell date +%s)
 
@@ -53,7 +53,7 @@ install: ## Install this cli app in your $GOPATH/bin
 release: ## Release (eg. V=0.0.1)
 	 @[ "$(V)" ] \
 		 && read -p "Press enter to confirm and push tag v$(V) to origin, <Ctrl+C> to abort ..." \
-		 && gsed -e "s/^VERSION    :=.*/VERSION    := $(V)/" Makefile \
+		 && gsed -i "s/^VERSION    :=.*/VERSION    := $(V)/" Makefile \
 		 && git add Makefile \
 		 && git commit -m "chore(version): bump to version: $(V)" \
 		 && git tag v$(V) -m "chore: v$(V)" \
